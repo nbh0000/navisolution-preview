@@ -150,3 +150,6 @@
 .flutter.is-on { opacity: var(--o, .9); }
 .flutter .bfs { width: 100%; height: 100%; animation-duration: var(--sp, .8s); filter: var(--f, hue-rotate(185deg) saturate(1.6)) drop-shadow(0 3px 4px rgba(10, 40, 90, .22)); }
 @media (prefers-reduced-motion: reduce) { .flutter-layer { display: none; } }
+
+/* 하단 탭바: 날갯짓 나비 + 프로젝트 */
+.tabbar__icon--navi .bfs { width: 38px; height: 38px; margin: -7px 0 -6px; }
