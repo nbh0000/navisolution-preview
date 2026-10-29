@@ -6,7 +6,7 @@
   layer.setAttribute('aria-hidden', 'true');
   document.body.appendChild(layer);
 
-  const tints = ['hue-rotate(185deg) saturate(1.6)', 'hue-rotate(185deg) saturate(1.6)', 'none', 'hue-rotate(35deg) saturate(1.4)'];
+  const tints = ['hue-rotate(185deg) saturate(1.05)', 'hue-rotate(185deg) saturate(1.05)', 'saturate(.85)', 'hue-rotate(35deg) saturate(1)'];
   const rand = (a, b) => a + Math.random() * (b - a);
   const count = innerWidth < 768 ? 2 : 3;
   const flies = [];

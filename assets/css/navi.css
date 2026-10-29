@@ -153,3 +153,127 @@
 
 /* 하단 탭바: 날갯짓 나비 + 프로젝트 */
 .tabbar__icon--navi .bfs { width: 38px; height: 38px; margin: -7px 0 -6px; }
+
+/* ==========================================================================
+   톤 다운 (2026-10-29 발주처 의견: "3D 느낌이 너무 진하다")
+   — 사진·일러스트 채도/대비를 낮추고, 글자 입체 그림자·버튼 그라데이션을 얕게
+   ========================================================================== */
+:root {
+  --sky-700: #2F64B8;
+  --sky-600: #3569BE;
+  --sky-500: #4F8FDB;
+  --pink: #D5527F;
+  --pink-2: #E06B93;
+  --orange: #E07A3A;
+  --green: #3E8A5A;
+  --grad-blue: linear-gradient(180deg, #5C93D8, #3E73C2);
+  --shadow-soft: 0 4px 14px rgba(20, 45, 90, .09);
+}
+
+/* 사진·3D 일러스트: 채도와 대비를 한 단계 낮춤 */
+.dm-hero__bg, .nv-top__bg, .nv-tv__art, .nv-guide__bg, .nv-vitem__thumb img, .mall-banner img,
+.dm-head__art, .dm-cat img, .nx-intro__bg, .nx-partner__bg, .nx-invite__bg, .nx-help__bg, .nx-benefit__photo img, .nx-story__item img {
+  filter: saturate(.78) contrast(.94) brightness(1.03);
+}
+.dm-btn__art { filter: saturate(.74) contrast(.93) brightness(1.04) drop-shadow(0 5px 8px rgba(20, 50, 30, .16)); }
+.dm-cat img { filter: saturate(.8) contrast(.95) drop-shadow(0 2px 3px rgba(10, 40, 90, .1)); }
+.dm-head__art { filter: saturate(.78) contrast(.94) drop-shadow(0 5px 8px rgba(10, 40, 90, .1)); }
+.logo__mark, .header .logo__mark, .logo img { filter: saturate(.8); }
+
+/* 메인 히어로: 하늘 위에 옅은 흰 막 */
+.dm-hero__inner { z-index: 1; }
+.dm-hero::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255, 255, 255, .22), rgba(255, 255, 255, .08) 60%, rgba(255, 255, 255, .18)); }
+
+/* 메인 3D 버튼 글자: 두꺼운 입체 테두리 → 얇은 흰 테두리 + 얕은 그림자 */
+.dm-btn__title span { --fill: linear-gradient(180deg, #5F97D9, #3769B4); --edge: rgba(30, 60, 110, .35); }
+.dm-btn__title span::before { -webkit-text-stroke: 1.2cqi #fff; text-shadow: 0 .5cqi 1.2cqi var(--edge); }
+.dm-btn--mall .dm-btn__title span:first-child { --fill: linear-gradient(180deg, #4E5B72, #2B3B5C); --edge: rgba(40, 50, 70, .3); }
+.dm-btn--partner .dm-btn__title span { --fill: linear-gradient(180deg, #E58AAB, #C9507D); --edge: rgba(130, 30, 70, .3); }
+.dm-btn__go { background: #4A7FC9; box-shadow: 0 0 0 .7cqi #fff, 0 .6cqi 1.2cqi rgba(0, 30, 80, .18); }
+.dm-btn--mall .dm-btn__go { background: #E08A45; }
+.dm-btn--partner .dm-btn__go { background: #D46890; }
+
+/* 큰 제목 글자 그림자 얕게 */
+.nv-top__title { text-shadow: 0 2px 0 rgba(11, 58, 140, .45), 0 4px 12px rgba(0, 0, 0, .25); }
+.mall-banner__text h2 { text-shadow: 0 2px 0 rgba(90, 40, 10, .35), 0 4px 12px rgba(0, 0, 0, .3); }
+.nx-head--light .nx-title { text-shadow: 0 2px 10px rgba(0, 0, 0, .25); }
+.nx-title, .nx-story__lead, .nx-invite__closing { color: #23395F; }
+
+/* 색 블록 버튼: 진한 그라데이션 → 차분한 단색 */
+.nv-action { box-shadow: 0 4px 12px rgba(20, 45, 90, .12); }
+.nv-action--blue { background: #4A7FC9; }
+.nv-action--orange { background: #DB8448; }
+.nv-action--green { background: #4F9468; }
+.nv-action > .icon:first-child { filter: none; }
+.nv-guide { box-shadow: 0 4px 12px rgba(20, 45, 90, .12); }
+.nv-guide--blue::before { background: linear-gradient(180deg, rgba(48, 88, 160, .92) 0%, rgba(48, 88, 160, .7) 38%, rgba(48, 88, 160, 0) 70%); }
+.nv-guide--green::before { background: linear-gradient(180deg, rgba(58, 122, 84, .92) 0%, rgba(58, 122, 84, .7) 38%, rgba(58, 122, 84, 0) 70%); }
+.nv-guide--orange::before { background: linear-gradient(180deg, rgba(196, 112, 52, .92) 0%, rgba(196, 112, 52, .7) 38%, rgba(196, 112, 52, 0) 70%); }
+.nv-guide--blue .nv-guide__more { background: #4A7FC9; }
+.nv-guide--green .nv-guide__more { background: #4F9468; }
+.nv-guide--orange .nv-guide__more { background: #DB8448; }
+.btn--primary { background: var(--pink); box-shadow: 0 3px 8px rgba(213, 82, 127, .18); }
+.btn--primary:hover { background: #C4466F; }
+.card__add, .pd-cart { box-shadow: 0 3px 8px rgba(40, 80, 150, .18); }
+.nx-help__no { box-shadow: none; }
+
+/* 날갯짓 나비 채도 낮춤 */
+.bfs { filter: hue-rotate(185deg) saturate(1.05); }
+.flutter .bfs { filter: var(--f, hue-rotate(185deg) saturate(1.05)) saturate(.8) drop-shadow(0 2px 3px rgba(10, 40, 90, .15)); }
+
+/* ---------- Codex preview2 색감 일부 참고: 미색 바탕·숲색 제목·바다색 파랑·모래/세이지 ---------- */
+:root {
+  --navy: #22453B;
+  --ink: #252D29;
+  --ink-2: #56625C;
+  --sky-900: #0B4D75;
+  --sky-700: #0A6FA8;
+  --sky-600: #0876B5;
+  --sky-500: #3E8FC4;
+  --sky-300: #9CC6DE;
+  --sky-100: #E5F0F5;
+  --sky-50: #F2F7F8;
+  --pink: #C65D7E;
+  --pink-2: #D3708F;
+  --line: #E4E8E3;
+  --grad-blue: linear-gradient(180deg, #1C82BE, #0876B5);
+}
+body { background: #FCFCFA; }
+.btn--primary:hover { background: #B24F6F; }
+.btn--secondary { color: #0A6FA8; border-color: #9CC6DE; }
+
+.nx-eyebrow { color: #4E8A72; }
+.nx-head--light .nx-eyebrow { color: #F1DDB0; }
+.nx-title, .nx-story__lead, .nx-invite__closing, .nx-step p { color: #22453B; }
+.nx-section--sky { background: linear-gradient(180deg, #F1F5EF, #FCFCFA); }
+.nx-help::before { background: linear-gradient(90deg, rgba(18, 36, 30, .88) 0%, rgba(18, 36, 30, .58) 55%, rgba(18, 36, 30, .08) 100%); }
+.nx-help__no { background: #0876B5; }
+.nx-benefit__photo::after { background: linear-gradient(90deg, rgba(30, 66, 56, .86), rgba(30, 66, 56, .18) 75%); }
+.nx-benefit li .icon { background: #E6F0EA; color: #2F6B55; }
+.nx-partner::before { background: linear-gradient(90deg, rgba(8, 82, 128, .74), rgba(8, 82, 128, .34) 70%, rgba(8, 82, 128, .12)); }
+.nx-step__no { background: none; color: #0876B5; }
+.nx-step__note { background: #F3EBDD; color: #7A5A2E; }
+.nx-invite__wait strong { color: #C65D7E; }
+.nx-invite__values li { background: #F3EBDD; color: #6E5634; }
+.nx-story__item::after { background: linear-gradient(180deg, rgba(18, 36, 30, 0) 45%, rgba(18, 36, 30, .8)); }
+.nx-story__no { color: #F1DDB0; }
+
+.nv-action--blue { background: #1F7BB0; }
+.nv-action--orange { background: #C98650; }
+.nv-action--green { background: #3D7A60; }
+.nv-guide--blue::before { background: linear-gradient(180deg, rgba(14, 92, 140, .9) 0%, rgba(14, 92, 140, .68) 38%, rgba(14, 92, 140, 0) 70%); }
+.nv-guide--green::before { background: linear-gradient(180deg, rgba(48, 102, 80, .9) 0%, rgba(48, 102, 80, .68) 38%, rgba(48, 102, 80, 0) 70%); }
+.nv-guide--orange::before { background: linear-gradient(180deg, rgba(176, 112, 62, .9) 0%, rgba(176, 112, 62, .68) 38%, rgba(176, 112, 62, 0) 70%); }
+.nv-guide--blue .nv-guide__more { background: #1F7BB0; }
+.nv-guide--green .nv-guide__more { background: #3D7A60; }
+.nv-guide--orange .nv-guide__more { background: #C98650; }
+.dm-btn__go { background: #1F7BB0; }
+.dm-btn--mall .dm-btn__go { background: #C98650; }
+.dm-btn--partner .dm-btn__go { background: #C65D7E; }
+.dm-btn__title span { --fill: linear-gradient(180deg, #3E91C6, #17689E); }
+.dm-hero::after { background: linear-gradient(180deg, rgba(252, 252, 250, .26), rgba(252, 252, 250, .08) 60%, rgba(252, 252, 250, .2)); }
+.dm-cat.is-active { background: #EEF4F0; color: #2F6B55; box-shadow: inset 0 0 0 1.5px #9CC0AE; }
+.dm-head { background: linear-gradient(135deg, #EEF4F0 0%, #FAFAF7 60%, #F6F0E6 100%); }
+.dm-hero__bg { filter: saturate(.66) contrast(.92) brightness(1.05); }
+.dm-hero::after { background: linear-gradient(180deg, rgba(252, 252, 250, .34), rgba(252, 252, 250, .12) 60%, rgba(252, 252, 250, .24)); }
+@media (min-width: 768px) and (max-width: 1023px) { .dm-hero__bg { filter: blur(18px) saturate(.7); } }
