@@ -277,3 +277,18 @@ body { background: #FCFCFA; }
 .dm-hero__bg { filter: saturate(.66) contrast(.92) brightness(1.05); }
 .dm-hero::after { background: linear-gradient(180deg, rgba(252, 252, 250, .34), rgba(252, 252, 250, .12) 60%, rgba(252, 252, 250, .24)); }
 @media (min-width: 768px) and (max-width: 1023px) { .dm-hero__bg { filter: blur(18px) saturate(.7); } }
+
+/* ---------- 로고: 하늘색 나비 + Harisu Company Dream ---------- */
+.lg { display: inline-flex; align-items: center; gap: 6px; color: #22453B; line-height: 1; white-space: nowrap; }
+.lg__bf, .lg__icon { width: 38px; height: auto; flex: none; }
+.lg__icon { width: 36px; height: 36px; object-fit: contain; }
+.lg__text { font-family: var(--font); font-size: 19px; letter-spacing: -.02em; }
+.lg__text b { font-weight: 800; }
+.lg__co { font-weight: 400; opacity: .85; }
+.lg__dream { position: relative; padding-right: 9px; }
+.lg__spark { position: absolute; top: -5px; right: -1px; width: 9px; height: 11px; }
+.header .lg__text { font-size: 18px; }
+.is-home .header:not(.is-scrolled) .lg { color: #fff; text-shadow: 0 1px 4px rgba(10, 40, 80, .35); }
+.lg--light { color: #fff; }
+.lg--light .lg__text { font-size: 20px; }
+@media (max-width: 380px) { .header .lg__text { font-size: 16px; } .lg__bf, .lg__icon { width: 32px; } }
